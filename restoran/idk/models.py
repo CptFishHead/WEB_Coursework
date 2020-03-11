@@ -101,7 +101,7 @@ class RaintingStar(models.Model):
 class Rainting(models.Model):
     ip = models.CharField("IP адрес", max_length=15)
     star = models.ForeignKey(RaintingStar, on_delete=models.CASCADE, verbose_name="звезда")
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, verbose_name="фильм")
+    movie = models.ForeignKey(Movie, on_delete=models.CharField, verbose_name="фильм")
 
     def __str__(self):
         return f"{self.star} - {self.movie}"
