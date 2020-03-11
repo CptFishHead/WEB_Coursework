@@ -1,7 +1,7 @@
-# from django.shortcuts import render
-# from django.views.generic.base import View
+from django.shortcuts import render
+from django.views.generic.base import View
 
-# from .models import Movie
+from .models import Movie
 
 
 
@@ -10,3 +10,8 @@
 #     def get(self, request):
 #         movies = Movie.objects.all()
 #         return render(request, "movies/movie_list.html", {"movie_list": movies})
+
+class MoviesView(GenreYear, ListView):
+    """Список фильмов"""
+    model = Movie
+    queryset = Movie.objects.filter(draft=False)
